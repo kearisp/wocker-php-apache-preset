@@ -1,6 +1,6 @@
 {
     "name": "php-apache",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "dockerfile": "./Dockerfile",
     "buildArgsOptions": {
         "PHP_VERSION": {
@@ -12,7 +12,8 @@
                 "7.3",
                 "7.4",
                 "8.0",
-                "8.2"
+                "8.2",
+                "8.3"
             ]
         },
         "EXTENSIONS": {
