@@ -11,7 +11,7 @@ RUN usermod -u $UID -s /bin/bash $USER && \
     chown -R $USER:$USER /home/$USER
 
 # WS Tools
-ADD ./bin/compare-version /usr/local/bin/compare-version
+ADD ./.wocker/bin/compare-version /usr/local/bin/compare-version
 RUN chmod +x /usr/local/bin/compare-version
 
 RUN apt-get update --fix-missing -y
@@ -195,9 +195,9 @@ RUN if [ "$NODE_VERSION" != "" ] && [ "$NODE_VERSION" != "none" ]; then \
 RUN a2enmod rewrite
 RUN a2enmod headers
 
-ADD ./etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
-ADD ./etc/apache2/apache2.conf /etc/apache2/apache2.conf
-COPY ./etc/apache2/mods-available/mpm_prefork.conf /etc/apache2/mods-available/
+ADD ./.wocker/etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
+ADD ./.wocker/etc/apache2/apache2.conf /etc/apache2/apache2.conf
+COPY ./.wocker/etc/apache2/mods-available/mpm_prefork.conf /etc/apache2/mods-available/
 
 #RUN touch /usr/local/etc/php/conf.d/mail.ini && \
 #    echo "SMTP = maildev.workspace" >> /usr/local/etc/php/conf.d/mail.ini && \
