@@ -1,4 +1,4 @@
-ARG PHP_VERSION
+ARG PHP_VERSION="8.3"
 ARG IMAGE_VERSION="${PHP_VERSION}-apache"
 
 FROM php:${IMAGE_VERSION}
@@ -211,11 +211,9 @@ COPY ./.wocker/etc/apache2/mods-available/mpm_prefork.conf /etc/apache2/mods-ava
 #RUN touch /usr/local/etc/php/conf.d/memory.ini && \
 #    echo "memory_limit = 256M;" >> /usr/local/etc/php/conf.d/memory.ini
 
-RUN touch /usr/local/bin/docker-entrypoint && \
-    echo "#!/bin/bash" >> /usr/local/bin/docker-entrypoint && \
-    echo "source /root/.bashrc" >> /usr/local/bin/docker-entrypoint && \
-    echo "exec docker-php-entrypoint \"\$@\"" >> /usr/local/bin/docker-entrypoint && \
-    chmod 775 /usr/local/bin/docker-entrypoint && \
+ADD ./.wocker/bin/entrypoint.sh /usr/local/bin/docker-entrypoint
+
+RUN chmod 775 /usr/local/bin/docker-entrypoint && \
     chmod +x /usr/local/bin/docker-entrypoint
 
 ENV APACHE_DOCUMENT_ROOT /var/www

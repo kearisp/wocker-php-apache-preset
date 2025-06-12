@@ -17,6 +17,10 @@ ws preset:add php-apache
 
 ## Features
 
+- 🚀 Ready-to-use php environment
+- 🔄 Automatic dependencies installation
+- 📁 Support for initialization scripts
+
 
 ## Usage
 
@@ -30,6 +34,7 @@ ws volume:mount ./my-scripts:/etc/wocker-init.d
 
 Scripts are executed in alphabetical order. Consider using numeric prefixes (e.g., `10-setup.sh`, `20-migrate.sh`) to control execution order.
 
+
 ### Environment Variables
 
 The preset supports common Wocker environment variables, plus:
@@ -39,21 +44,23 @@ The preset supports common Wocker environment variables, plus:
 
 ### Docker Image
 
-This preset uses the official php Docker image ([`php`](https://hub.docker.com/_/php)) with Alpine Linux by default. You can change the version: `php`
+This preset uses the official php Docker image ([`php`](https://hub.docker.com/_/php)) with apache by default.
 
 ```shell
-ws build-args:set IMAGE_VERSION=latest
+ws build-args:set IMAGE_VERSION=8.3-apache
 ```
 
-Available options: `alpine`, `latest`, `slim`, or a specific version like `1.0.11`.
+Available options: `8.1-apache`, `8.2-apache`, `8.3-apache`.
 
 For a complete list of available php versions, see: [https://hub.docker.com/_/php/tags](https://hub.docker.com/_/php/tags)
+
 
 ## Prerequisites
 
 - Docker installed and running
 - Wocker CLI installed
 - Basic understanding of php
+
 
 ## Contributing
 
