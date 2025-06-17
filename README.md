@@ -1,6 +1,6 @@
 # PHP Apache preset for Wocker
 
-[![Version](https://img.shields.io/badge/version-1.0.3-blue.svg)](https://github.com/kearisp/wocker)
+[![Version](https://img.shields.io/badge/version-1.0.4-blue.svg)](https://github.com/kearisp/wocker-php-apache-preset)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 A lightweight and efficient preset for developing php applications with the Wocker workspace.
@@ -11,7 +11,7 @@ A lightweight and efficient preset for developing php applications with the Wock
 You can add this preset to an existing Wocker project:
 
 ```shell
-ws preset:add php-apache
+ws preset:install php-apache
 ```
 
 
